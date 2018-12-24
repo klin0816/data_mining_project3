@@ -5,6 +5,15 @@
 名字：王康霖
 學號：N26077124
 
+## Files
+`algorithm.py` 主程式，針對 dataset 產生結果存在 `result/` 目錄下
+`analysis.py` 計算程式執行時間
+`data_processing` 針對 ibm dataset 進行處理，讓 dataset 可以跟課程提供的 dataset 格式一致
+`graph.py` 一個可被呼叫的 class，用來處理和連結 nodes
+`increment.py` 用來顯示增加 graph1，2，3 的 hub，auth，pagerank
+`Readme.md` 報告
+`result/` 所有產生的結果
+`hw3dataset` 所有本次 project 用到的 dataset
 
 ## Implement
 
