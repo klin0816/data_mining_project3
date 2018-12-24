@@ -6,14 +6,14 @@
 學號：N26077124
 
 ## Files
-`algorithm.py` 主程式，針對 dataset 產生結果存在 `result/` 目錄下
-`analysis.py` 計算程式執行時間
-`data_processing` 針對 ibm dataset 進行處理，讓 dataset 可以跟課程提供的 dataset 格式一致
-`graph.py` 一個可被呼叫的 class，用來處理和連結 nodes
-`increment.py` 用來顯示增加 graph1，2，3 的 hub，auth，pagerank
-`Readme.md` 報告
-`result/` 所有產生的結果
-`hw3dataset` 所有本次 project 用到的 dataset
+- `algorithm.py` 主程式，針對 dataset 產生結果存在 `result/` 目錄下  
+- `analysis.py` 計算程式執行時間  
+- `data_processing` 針對 ibm dataset 進行處理，讓 dataset 可以跟課程提供的 dataset 格式一致  
+- `graph.py` 一個可被呼叫的 class，用來處理和連結 nodes  
+- `increment.py` 用來顯示增加 graph1，2，3 的 hub，auth，pagerank  
+- `Readme.md` 報告  
+- `result/` 所有產生的結果  
+- `hw3dataset` 所有本次 project 用到的 dataset  
 
 ## Implement
 
@@ -39,7 +39,7 @@ N = graph size = number of nodes
 4. 計算diff，如果大於min_diff，重複步驟2-4
 
 ### Simrank
-![](https://i.imgur.com/yUqn2id.png)
+![](https://i.imgur.com/yUqn2id.png)  
 依照上圖公式計算每個pair(u->v)的sim值
 I(a): a的所有parents
 
@@ -96,7 +96,8 @@ for i, time in enumerate(c_time(graphs, method)):
 ### Simrank
 ![](https://i.imgur.com/ZDz3YoR.png)
 
-根據以上結果發現，node 及 edge 的數量越多，花費的時間越久。此現象應該與 edge 有較大關係，因為每個演算法皆有 loop 過所有 edge。
+根據以上結果發現，node 及 edge 的數量越多，花費的時間越久。  
+此現象應該與 edge 有較大關係，因為每個演算法皆有 loop 過所有 edge。
 
 
 ## Increment of result
@@ -104,12 +105,12 @@ for i, time in enumerate(c_time(graphs, method)):
 
 加入一個 1 -> 1 的 edge 即可以讓 hub，auth，pagerank 都有小幅度的提升
 
-hub 的計算方式是 children 的 auth 的加總
-auth 的計算方式是 parents 的 hub 的加總
-所以增加自己指到自己的edge，必能提高 hub 和 auth 值
+hub 的計算方式是 children 的 auth 的加總  
+auth 的計算方式是 parents 的 hub 的加總  
+所以增加自己指到自己的edge，必能提高 hub 和 auth 值  
 
-如果一個 page 被 link，那麼 link 到這些 page 將增加其 pagerank。
-如果沒有直接 link，link 到 page 路徑較短的 page 將會產生更強的效果。
+如果一個 page 被 link，那麼 link 到這些 page 將增加其 pagerank。  
+如果沒有直接 link，link 到 page 路徑較短的 page 將會產生更強的效果。  
 發生這種情況是因為 rank 是由指向自己的 page 決定的。如果這個 page 貢獻更多的 page，可以貢獻更多（即 page 的路徑是較短的 page），那麼其 rank 會更高
 
 ## Question and Discussion
@@ -131,12 +132,12 @@ HITS 演算法可以獲得比較高的 recall，算出具有較大Hub 值的 pag
 
 ### Compare between HITS and PageRank
 
-HITS 與使用者輸入的查詢有相關，而 PageRank 與查詢無關。
-所以，HITS 可以單獨作為相似性計算標準，而PageRank 必須結合其他內容相似性計算才可以進行搜尋的比較。
-HITS 因為與使用者查詢有關，所以必須在接收到使用者查詢後才能進行計算，計算效率較低；而 PageRank 則可以直接計算結果，計算效率較高。
-HITS 的計算數量較少，只需特定 page 之間的 link；而 PageRank 則須對所有 page 進行計算。
+HITS 與使用者輸入的查詢有相關，而 PageRank 與查詢無關。  
+所以，HITS 可以單獨作為相似性計算標準，而PageRank 必須結合其他內容相似性計算才可以進行搜尋的比較。  
+HITS 因為與使用者查詢有關，所以必須在接收到使用者查詢後才能進行計算，計算效率較低；而 PageRank 則可以直接計算結果，計算效率較高。  
+HITS 的計算數量較少，只需特定 page 之間的 link；而 PageRank 則須對所有 page 進行計算。  
 
 ### Conclusion
 
-這三種方法都各自有優缺和要計算的考量。
+這三種方法都各自有優缺和要計算的考量。  
 在實務上，我們更應該依照需求去做改進，並在 time cost 上和準確率之間做最佳的平衡。
